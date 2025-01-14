@@ -1,8 +1,6 @@
-numpy>=1.23.5,<2
+numpy==1.24.4
 opencv-python==4.10.0.84
 cv2_enumerate_cameras==1.1.15
-onnx==1.16.0
-insightface==0.7.3
 psutil==5.9.8
 tk==0.1.0
 customtkinter==5.2.2
@@ -15,3 +13,9 @@ tqdm==4.66.4
 gfpgan==1.3.8
 tkinterdnd2==0.4.2
 pygrabber==0.2
+matplotlib 
+seaborn 
+insight 
+opencv-python==4.10.0.84
+insightface==0.7.3
+onnx==1.16.0
