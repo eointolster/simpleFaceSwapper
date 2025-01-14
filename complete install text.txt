@@ -100,7 +100,7 @@ Close other GPU-intensive applications
 
 
 Verifying GPU Usage
-pythonCopy# Add this code at the start of main() to verify GPU usage
+# Add this code at the start of main() to verify GPU usage
 import onnxruntime as ort
 print("Available Providers:", ort.get_available_providers())
 System Requirements
@@ -123,4 +123,3 @@ Performance will be significantly better with GPU acceleration
 Keep the source image resolution reasonable (e.g., 512x512 or smaller)
 Make sure the source image has a clear, single face
 
-Copy
