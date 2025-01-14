@@ -1,0 +1,126 @@
+Here's a complete step-by-step guide to set up the face swap project:
+# Face Swap Project Setup Guide
+
+## 1. Create and Setup Python Environment
+
+### Using conda (recommended)
+```bash
+# Create a new conda environment with Python 3.9
+conda create -n faceswap python=3.9
+conda activate faceswap
+Using venv (alternative)
+# Create a new virtual environment
+python -m venv faceswap-env
+# On Windows
+.\faceswap-env\Scripts\activate
+# On Linux/Mac
+source faceswap-env/bin/activate
+2. Create Project Structure
+faceswap/
+├── models/
+│   ├── inswapper_128.onnx
+│   └── hughJackman.jpg
+├── main.py
+└── requirements.txt
+3. Create requirements.txt
+Create a file named requirements.txt with the following content:
+onnxruntime-gpu
+opencv-python
+insightface==0.7.3
+numpy
+4. Install Requirements
+pip install -r requirements.txt
+5. Download Required Models
+Download inswapper_128.onnx
+
+Download inswapper_128.onnx from one of these sources:
+
+Google Drive Link
+Hugging Face
+
+
+Place the downloaded inswapper_128.onnx file in the models folder
+
+6. Prepare Source Image
+
+Get a clear frontal face image (e.g., hughJackman.jpg)
+Place it in the models folder
+Update the source_image_path in the code to match your image name:
+
+source_image_path = "./models/hughJackman.jpg"
+7. GPU Setup (Optional but Recommended)
+For NVIDIA GPUs:
+
+Install NVIDIA drivers for your GPU
+Install CUDA Toolkit 11.x from NVIDIA website
+Install cuDNN for your CUDA version from NVIDIA website
+
+For AMD GPUs on Windows:
+
+Install DirectML runtime (usually comes with Windows updates)
+
+8. Test the Setup
+
+Run the script:
+
+python notMouthFallbackCPUFaceSwap.py
+
+You should see your webcam feed with face swapping applied when a face is detected
+Press 'q' to quit the application
+
+Troubleshooting
+Common Issues:
+
+No GPU Detected
+
+Check if CUDA is installed correctly (for NVIDIA)
+The program will fall back to CPU if no GPU is detected
+
+
+Webcam Not Found
+
+Try changing the camera_index in the code (try 0, 1, or 2)
+Check if your webcam is properly connected
+
+
+Import Errors
+
+Make sure all requirements are installed correctly
+Try reinstalling the requirements:
+
+pip uninstall -r requirements.txt
+pip install -r requirements.txt
+
+Performance Issues
+
+Lower the capture_width and capture_height values
+Ensure you're running on GPU if available
+Close other GPU-intensive applications
+
+
+
+Verifying GPU Usage
+pythonCopy# Add this code at the start of main() to verify GPU usage
+import onnxruntime as ort
+print("Available Providers:", ort.get_available_providers())
+System Requirements
+
+Python 3.9 or higher
+Webcam
+For GPU acceleration:
+
+NVIDIA GPU with CUDA support, or
+AMD GPU with DirectML support (Windows)
+
+
+At least 4GB RAM (8GB recommended)
+2GB free disk space
+
+Additional Notes
+
+The face swap works best with clear, well-lit faces
+Performance will be significantly better with GPU acceleration
+Keep the source image resolution reasonable (e.g., 512x512 or smaller)
+Make sure the source image has a clear, single face
+
+Copy
